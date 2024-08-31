@@ -81,13 +81,3 @@ def EDA(df):
     print('-'*150)
     print('Mean Selling Price for each Fuel Type, Seller Type and Transmission')
     print(round(df.groupby(['Fuel_Type','Seller_Type', 'Transmission'])[['Selling_Price']].mean(),2).unstack())
-
-
-def main():
-    df = getDf(path)
-    print()
-    EDA(df)
-
-if __name__=='__main__':
-    path = 'data/car data.csv'
-    main()
