@@ -1,5 +1,4 @@
 # Import libraries
-import numpy as np
 import pandas as pd
 
 path = 'data/car data.csv'
