@@ -2,7 +2,6 @@
 import pandas as pd
 
 path = 'data/car data.csv'
-
 def getMeanMedianMax(df,by_, value_):
     df_desc = df[df[by_]==value_].describe()
     result = pd.concat([df_desc.iloc[1],df_desc.iloc[5],df_desc.iloc[7]],axis=1)
@@ -80,3 +79,9 @@ def EDA(df):
     print('-'*150)
     print('Mean Selling Price for each Fuel Type, Seller Type and Transmission')
     print(round(df.groupby(['Fuel_Type','Seller_Type', 'Transmission'])[['Selling_Price']].mean(),2).unstack())
+    print('-'*150)
+    print("Which Fuel_Type's cars are Driven most and what are the prices of those cars :")
+    print(df.groupby(['Fuel_Type'])[['Kms_Driven', 'Selling_Price', 'Present_Price']].mean().round(2))
+    print('-*-'*20,end=' ')
+    print('END OF EDA',end=' ')
+    print('-*-'*20,end=' ')
